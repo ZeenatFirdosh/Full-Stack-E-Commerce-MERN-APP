@@ -32,7 +32,9 @@ async function userSignInController(req,res){
 
         const tokenOption = {
             httpOnly : true,
-            secure : true
+            secure : true,
+            sameSite: 'none', // Cross-site cookie policy
+            domain : "e-commerce-mern-amit.onrender.com"
         }
 
         res.cookie("token",token,tokenOption).status(200).json({
